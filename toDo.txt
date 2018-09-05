@@ -1,0 +1,43 @@
+Backlog:	
+																						
+Planned:
+	--FUTURE WORK--
+	
+Implementation:
+	--DONE--
+	
+Done:
+	-> parte de UI (cum combinam metricile) (Tami)
+	-> limbaj care imi spune cum compun metricile (Oana)
+	-> parte de importare de proiect pentru analizat (Tami)
+	-> cum specific unde sa se calculeze metricile (dependenta lui A fata de B) (introducere de la tastatura)
+	-> BOvR - Base Class Overriding Ratio pg. 168 Marinescu (Tami)
+		-> rezolv un Null Pointer Exception ce apare la view MAbstractClasses group (Tami)
+	-> NOPA - Number of Public Attributes pg. 172 Marinescu (Tami) -> done
+	-> NProtM - Number of Protected Members pg. 173 Marinescu (metode si atribute) (Tami) -> done
+	-> NOPrA - Number of Private Attributes (Tami) -> done
+	-> NOProA - Number of Protected Attributes (Tami) -> done
+	-> Number of Private Members  (Tami) -> done
+	-> Number of Public Members (Tami) -> done 
+	-> Number of Public Methods (Oana) -> done
+	-> Number of Abstract Methods (Oana) -> done
+	-> Number of Private Methods (Oana) -> done
+	-> MAbstractClass (Tami) -> done
+	-> noOfExtendingInterfaces (Oana) ->done
+	-> NOAM - Number of Accessor Methods pg. 172 Marinescu (Oana) -> done
+	-> numar de mosteniri 2 (clase&interfete)- nr de relatii de mostenire existente in: 
+												- pachetul curent (Tami) -> done
+	-> numar de mosteniri (nr de clase&interfete care mostenesc clasa&interfata curenta) 
+												- in cadrul pachetului curent (Oana) -> done
+												- in cadrul proiectului (Oana) -> done
+	-> add documentation for already implemented classes (Oana) -> done
+	-> numar de apeluri ale unei metode - in cadrul intregului workspace (Oana) -> done
+	-> numar de referinte ale unei clase - in cadrul pachetului din care face parte (Oana)
+									     - in cadrul intregului workspace (Oana) -> done
+									     - in intregul proiect (Oana) -> done
+	-> creare interfata pentru definire de metrici noi de catre utilizator (Oana) -> done
+	
+	-> (Oana) boolean initialise - if false throw exception
+		when calculate set initialise pe true
+		get => val returnata de calculata (in Metric Interface)
+		creez exceptie noua: Metric Not Initialized

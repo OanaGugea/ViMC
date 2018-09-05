@@ -1,0 +1,44 @@
+Oana: 15
+	- number of public methods
+	- number of private methods
+	- number of protected methods
+	- number of abstract methods
+	- number of accessor methods
+	- number of calls to a method in workspace
+	
+	- number of implementations of interface in package
+	- number of implementations of interface in project *
+	- number of extending interfaces *
+	- number of interfaces implemented *
+	
+	- number of implementations of class in package
+	- number of implementations of class in project *
+	
+	- number of references to class in workspace
+	- number of references to class in project
+	- number of references to class in package
+	
+	
+Tami: 13
+	- base class overriding ratio
+	- number of constructors
+	- number of inheriting classes *
+	
+	- number of public attributes
+	- number of private attributes
+	- number of protected attributes
+	- number of public members
+	- number of private members
+	- number of protected members
+	
+	- number of abstract classes in package
+	- number of classes in package
+	- number of inheritances in package
+	- number of interfaces in package
+	
+Comun: 3
+	- average number of arguments in method
+	- number of arguments to a method
+	- number of methods
+	
+Total: 31

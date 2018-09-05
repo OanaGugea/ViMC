@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.startup">
+		<startup
+			class="xmetrics.startup.Startup">
+		</startup>
+	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+   		<command
+   			description="Start ViMC command"
+   			id="StartViMCCommandId"
+   			name="Start ViMC">
+   		</command>
+	</extension>
+	
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="view.plugin.StartViMCCommandHandler"
+			commandId="StartViMCCommandId">
+		</handler>
+	</extension>
+	
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+				locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+			<command
+				commandId="StartViMCCommandId"
+				style="push">
+			</command>
+		</menuContribution>
+	</extension>
+
+</plugin>

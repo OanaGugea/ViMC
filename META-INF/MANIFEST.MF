@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ViMC
+Bundle-SymbolicName: ViMC;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: lib/XCoreInterfaces_1.1.0.jar,
+ .
+Require-Bundle: org.eclipse.ui;bundle-version="3.108.1",
+ org.eclipse.core.runtime;bundle-version="3.12.0",
+ Insider;bundle-version="2.1.1",
+ org.eclipse.jdt.core;bundle-version="3.12.3",
+ org.eclipse.core.resources;bundle-version="3.12.0"
