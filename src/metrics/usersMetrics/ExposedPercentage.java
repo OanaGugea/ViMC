@@ -1,4 +1,4 @@
-package metrics.composedMetrics;
+package metrics.usersMetrics;
 
 import java.util.ArrayList;
 
