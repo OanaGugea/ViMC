@@ -24,32 +24,43 @@ public class CyclicDependencyBetweenTwoPackages extends MetricInterface {
 		MPackage destinationPackege = (MPackage) destination.get(0);
 		List<MClass> classesInDestinationPackage = destinationPackege.classesGroup().getElements();
 
+		ArrayList<Object> sourceClassList = new ArrayList<Object>();
+		ArrayList<Object> destinationClassList = new ArrayList<Object>();
+
 		try {
 			for (MClass sourceClass : classesInSourcePackage) {
-				ArrayList<Object> sourceClassList = new ArrayList<Object>();
 				sourceClassList.add(sourceClass);
 
 				for (MClass destinationClass : classesInDestinationPackage) {
-					ArrayList<Object> destinationClassList = new ArrayList<Object>();
 					destinationClassList.add(destinationClass);
 
 					metric.calculate(sourceClassList, destinationClassList);
 					cyclicDependency += metric.getMetricValue();
-				}
-			}
-			if(cyclicDependency != 0) {
-				for (MClass sourceClass : classesInSourcePackage) {
-					ArrayList<Object> sourceClassList = new ArrayList<Object>();
-					sourceClassList.add(sourceClass);
 
-					for (MClass destinationClass : classesInDestinationPackage) {
-						ArrayList<Object> destinationClassList = new ArrayList<Object>();
-						destinationClassList.add(destinationClass);
+					destinationClassList.remove(destinationClass);
+				}
+
+				sourceClassList.remove(sourceClass);
+			}
+			if (cyclicDependency > 0) {
+
+				cyclicDependency = 0;
+
+				for (MClass destinationClass : classesInDestinationPackage) {
+					destinationClassList.add(destinationClass);
+
+					for (MClass sourceClass : classesInSourcePackage) {
+						sourceClassList.add(sourceClass);
 
 						metric.calculate(destinationClassList, sourceClassList);
 						cyclicDependency += metric.getMetricValue();
+
+						sourceClassList.remove(sourceClass);
 					}
+					destinationClassList.remove(destinationClass);
 				}
+			} else {
+				return 0.0;
 			}
 
 		} catch (MetricNotInitialised e) {

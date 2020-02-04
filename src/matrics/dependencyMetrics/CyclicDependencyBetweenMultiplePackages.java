@@ -16,14 +16,22 @@ public class CyclicDependencyBetweenMultiplePackages extends MetricInterface {
 		// destination: not used
 
 		double cyclicDependency = 0;
-		double temporaryDependeny = 0;
 		NoOfSourceClassInstancesInDestinationClass metric = new NoOfSourceClassInstancesInDestinationClass();
 
 		for (int i = 0; i < source.size(); i++) {
+			cyclicDependency = 0;
+
 			MPackage sourcePackage = (MPackage) source.get(i);
 			List<MClass> classesInSourcePackage = sourcePackage.classesGroup().getElements();
 
-			MPackage destinationPackege = (MPackage) source.get(i + 1);
+			MPackage destinationPackege;
+
+			if (i == source.size() - 1) {
+				destinationPackege = (MPackage) source.get(0);
+			} else {
+				destinationPackege = (MPackage) source.get(i + 1);
+			}
+
 			List<MClass> classesInDestinationPackage = destinationPackege.classesGroup().getElements();
 
 			try {
@@ -36,14 +44,12 @@ public class CyclicDependencyBetweenMultiplePackages extends MetricInterface {
 						destinationClassList.add(destinationClass);
 
 						metric.calculate(sourceClassList, destinationClassList);
-						temporaryDependeny += metric.getMetricValue();
+						cyclicDependency += metric.getMetricValue();
 					}
 				}
-				if (temporaryDependeny == 0) {
+				if (cyclicDependency == 0.0) {
 					return 0.0;
 				}
-				cyclicDependency += temporaryDependeny;
-				temporaryDependeny = 0;
 
 			} catch (MetricNotInitialised e) {
 				System.out.println("Metric Not Initialised");

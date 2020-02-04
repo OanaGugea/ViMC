@@ -19,7 +19,8 @@ public class CyclicDepndencyBetweenClasses extends MetricInterface {
 			metric.calculate(source, destination);
 			cyclicDependency += metric.getMetricValue();
 
-			if (cyclicDependency != 0) {
+			if (cyclicDependency > 0) {
+				cyclicDependency = 0;
 				metric.calculate(destination, source);
 				cyclicDependency += metric.getMetricValue();
 			}
