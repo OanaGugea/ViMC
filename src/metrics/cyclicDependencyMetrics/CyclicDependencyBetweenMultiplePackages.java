@@ -1,4 +1,4 @@
-package matrics.dependencyMetrics;
+package metrics.cyclicDependencyMetrics;
 
 import java.util.ArrayList;
 import java.util.List;
