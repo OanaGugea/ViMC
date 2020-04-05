@@ -1,3 +1,5 @@
-extends:Application
 method:GET
 method:SET
+method:POST
+method:PUT
+method:DELETE

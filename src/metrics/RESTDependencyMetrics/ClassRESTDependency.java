@@ -17,7 +17,6 @@ import vimc.metamodel.entity.MClass;
 import vimc.metamodel.entity.MMethod;
 
 public class ClassRESTDependency extends MetricInterface {
-	private ArrayList<String> superClassNames = new ArrayList<String>();
 	private ArrayList<String> methodsAnnotations = new ArrayList<String>();
 	private String fileName = "/Users/oana.gugea/git/ViMC/src/metrics/RESTDependencyMetrics/dependencyPatterns.txt";
 
@@ -27,16 +26,9 @@ public class ClassRESTDependency extends MetricInterface {
 			String rowData;
 			while ((rowData = myReader.readLine()) != null) {
 				String[] data = rowData.split(":");
-				switch (data[0]) {
-				case "extends": {
-					superClassNames.add(data[1]);
-					break;
-				}
-				case "method": {
-					methodsAnnotations.add(data[1]);
-					break;
-				}
-				}
+
+				methodsAnnotations.add(data[1]);
+
 			}
 			myReader.close();
 		} catch (FileNotFoundException e) {
@@ -60,19 +52,17 @@ public class ClassRESTDependency extends MetricInterface {
 		double methods = 0;
 
 		try {
-			String superClassName = mClass.getUnderlyingObject().getSuperclassName();
-			if (superClassNames.contains(superClassName)) {
-				List<MMethod> allMethods = mClass.methodsGroup().getElements();
-				for (MMethod met : allMethods) {
-					methods++;
-					IMethod m = met.getUnderlyingObject();
-					IAnnotation[] allAnnotations = m.getAnnotations();
-					for (IAnnotation a : allAnnotations) {
-						if (methodsAnnotations.contains(a.getElementName())) {
-							restMethods++;
-						}
+			List<MMethod> allMethods = mClass.methodsGroup().getElements();
+			for (MMethod met : allMethods) {
+				methods++;
+				IMethod m = met.getUnderlyingObject();
+				IAnnotation[] allAnnotations = m.getAnnotations();
+				for (IAnnotation a : allAnnotations) {
+					if (methodsAnnotations.contains(a.getElementName())) {
+						restMethods++;
 					}
 				}
+
 			}
 		} catch (JavaModelException e) {
 			e.printStackTrace();
